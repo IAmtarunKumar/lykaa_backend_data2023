@@ -20,13 +20,13 @@ app.use("/cart",cart)
 app.use(authorization)
 app.use("/posts", posts)
 
-
-app.listen(process.env.port, async ()=>{
+const port  = process.env.port || 5000
+app.listen(port, async ()=>{
     try {
         await connection
         console.log("connected to Database")
     } catch (error) {
         console.log("something error in port")
     }
-    console.log(`server is running on port ${process.env.port}`)
+    console.log(`server is running on port ${port}`)
 })
